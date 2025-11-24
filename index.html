@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Veterinaria - Gestión CRUD</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <h1>Veterinaria Central</h1>
+    </div>
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a href="#duenos" data-section="duenos" class="nav-link active">Dueños</a>
+      <a href="#mascotas" data-section="mascotas" class="nav-link">Mascotas</a>
+      <a href="#veterinarios" data-section="veterinarios" class="nav-link">Veterinarios</a>
+      <a href="#servicios" data-section="servicios" class="nav-link">Servicios</a>
+      <a href="#citas" data-section="citas" class="nav-link">Citas</a>
+      <a href="#pagos" data-section="pagos" class="nav-link">Pagos</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- ===================== DUEÑOS ===================== -->
+    <section id="duenos" class="panel active" data-panel="duenos">
+      <h2>Lista de Dueños</h2>
+      <div class="table-wrap">
+        <table id="tablaDuenos">
+          <thead>
+            <tr>
+              <th>ID</th><th>Nombre</th><th>Teléfono</th><th>Correo</th><th>Dirección</th><th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <h3>Agregar / Eliminar Dueño</h3>
+      <form id="formDuenos" class="form-inline">
+        <input type="text" name="nombre" placeholder="Nombre" required>
+        <input type="text" name="telefono" placeholder="Teléfono" required>
+        <input type="email" name="correo" placeholder="Correo" required>
+        <input type="text" name="direccion" placeholder="Dirección" required>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-add">Agregar</button>
+          <button type="button" class="btn btn-delete" data-for="duenos">Eliminar (por ID)</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ===================== MASCOTAS ===================== -->
+    <section id="mascotas" class="panel" data-panel="mascotas">
+      <h2>Lista de Mascotas</h2>
+      <div class="table-wrap">
+        <table id="tablaMascotas">
+          <thead>
+            <tr>
+              <th>ID</th><th>ID Dueño</th><th>Nombre</th><th>Especie</th><th>Raza</th><th>Edad</th><th>Género</th><th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <h3>Agregar / Eliminar Mascota</h3>
+      <form id="formMascotas" class="form-inline">
+        <input type="number" name="id_dueno" placeholder="ID Dueño" required>
+        <input type="text" name="nombre" placeholder="Nombre" required>
+        <input type="text" name="especie" placeholder="Especie" required>
+        <input type="text" name="raza" placeholder="Raza" required>
+        <input type="number" name="edad" placeholder="Edad" required>
+        <input type="text" name="genero" placeholder="Género" required>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-add">Agregar</button>
+          <button type="button" class="btn btn-delete" data-for="mascotas">Eliminar (por ID)</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ===================== VETERINARIOS ===================== -->
+    <section id="veterinarios" class="panel" data-panel="veterinarios">
+      <h2>Lista de Veterinarios</h2>
+      <div class="table-wrap">
+        <table id="tablaVeterinarios">
+          <thead>
+            <tr>
+              <th>ID</th><th>Nombre</th><th>Especialidad</th><th>Teléfono</th><th>Correo</th><th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <h3>Agregar / Eliminar Veterinario</h3>
+      <form id="formVeterinarios" class="form-inline">
+        <input type="text" name="nombre" placeholder="Nombre" required>
+        <input type="text" name="especialidad" placeholder="Especialidad" required>
+        <input type="text" name="telefono" placeholder="Teléfono" required>
+        <input type="email" name="correo" placeholder="Correo" required>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-add">Agregar</button>
+          <button type="button" class="btn btn-delete" data-for="veterinarios">Eliminar (por ID)</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ===================== SERVICIOS ===================== -->
+    <section id="servicios" class="panel" data-panel="servicios">
+      <h2>Lista de Servicios</h2>
+      <div class="table-wrap">
+        <table id="tablaServicios">
+          <thead>
+            <tr>
+              <th>ID</th><th>Nombre</th><th>Descripción</th><th>Costo</th><th>Duración (min)</th><th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <h3>Agregar / Eliminar Servicio</h3>
+      <form id="formServicios" class="form-inline">
+        <input type="text" name="nombre_servicio" placeholder="Nombre" required>
+        <input type="text" name="descripcion" placeholder="Descripción" required>
+        <input type="number" step="0.01" name="costo" placeholder="Costo" required>
+        <input type="number" name="duracion_minutos" placeholder="Duración minutos" required>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-add">Agregar</button>
+          <button type="button" class="btn btn-delete" data-for="servicios">Eliminar (por ID)</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ===================== CITAS ===================== -->
+    <section id="citas" class="panel" data-panel="citas">
+      <h2>Lista de Citas</h2>
+      <div class="table-wrap">
+        <table id="tablaCitas">
+          <thead>
+            <tr>
+              <th>ID</th><th>ID Mascota</th><th>ID Veterinario</th><th>ID Servicio</th><th>Fecha</th><th>Hora</th><th>Estado</th><th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <h3>Agregar / Eliminar Cita</h3>
+      <form id="formCitas" class="form-inline">
+        <input type="number" name="id_mascota" placeholder="ID Mascota" required>
+        <input type="number" name="id_veterinario" placeholder="ID Veterinario" required>
+        <input type="number" name="id_servicio" placeholder="ID Servicio" required>
+        <input type="date" name="fecha" required>
+        <input type="time" name="hora" required>
+        <input type="text" name="estado" placeholder="Estado">
+        <div class="form-actions">
+          <button type="submit" class="btn btn-add">Agregar</button>
+          <button type="button" class="btn btn-delete" data-for="citas">Eliminar (por ID)</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ===================== PAGOS ===================== -->
+    <section id="pagos" class="panel" data-panel="pagos">
+      <h2>Lista de Pagos</h2>
+      <div class="table-wrap">
+        <table id="tablaPagos">
+          <thead>
+            <tr>
+              <th>ID</th><th>ID Cita</th><th>Monto</th><th>Método Pago</th><th>Fecha</th><th>Estado</th><th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <h3>Agregar / Eliminar Pago</h3>
+      <form id="formPagos" class="form-inline">
+        <input type="number" name="id_cita" placeholder="ID Cita" required>
+        <input type="number" step="0.01" name="monto" placeholder="Monto" required>
+        <input type="text" name="metodo_pago" placeholder="Método de Pago" required>
+        <input type="date" name="fecha_pago">
+        <input type="text" name="estado" placeholder="Estado">
+        <div class="form-actions">
+          <button type="submit" class="btn btn-add">Agregar</button>
+          <button type="button" class="btn btn-delete" data-for="pagos">Eliminar (por ID)</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>© Veterinaria Central — Gestión CRUD local (simulación con localStorage)</small>
+  </footer>
+
+  <script src="JsGrafica.js"></script>
+</body>
+</html>
